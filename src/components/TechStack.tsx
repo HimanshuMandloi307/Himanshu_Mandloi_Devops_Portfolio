@@ -13,14 +13,14 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+  "/images/aws.webp",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStAfs1TTA1zjBb4W8SLgGa6jg-CeBukZeq3Q&s",
+  "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/kubernetes.webp",
+  "/images/terraform.webp",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3s3eJpfGaV9Jk9m-fRxxF4HMnGkIxud04vg&s",
+  "/images/github-actions.webp",
+  "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fg4kntkxur1ioq4xvfury.png",
+  "/images/linux.webp",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
@@ -57,8 +57,8 @@ function SphereGeo({
         new THREE.Vector3(
           -50 * delta * scale,
           -150 * delta * scale,
-          -50 * delta * scale
-        )
+          -50 * delta * scale,
+        ),
       );
 
     api.current?.applyImpulse(impulse, true);
@@ -105,9 +105,9 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
       new THREE.Vector3(
         (pointer.x * viewport.width) / 2,
         (pointer.y * viewport.height) / 2,
-        0
+        0,
       ),
-      0.2
+      0.2,
     );
     ref.current?.setNextKinematicTranslation(targetVec);
   });
@@ -162,7 +162,7 @@ const TechStack = () => {
           metalness: 0.5,
           roughness: 1,
           clearcoat: 0.1,
-        })
+        }),
     );
   }, []);
 
