@@ -23,19 +23,29 @@ const setLighting = (scene: THREE.Scene) => {
 
   scene.add(pointLight);
 
-  // HDR Environment
+  // Load HDR environment
   new RGBELoader().load(
     `${BASE}models/char_enviorment.hdr`,
-    function (texture) {
+    (texture) => {
       texture.mapping = THREE.EquirectangularReflectionMapping;
 
       scene.environment = texture;
-      scene.environmentIntensity = 0;
-      scene.environmentRotation.set(5.76, 85.85, 1);
+      (scene as any).environmentIntensity = 0;
+
+      // Prevent runtime crash if property doesn't exist
+      if ((scene as any).environmentRotation) {
+        (scene as any).environmentRotation.set(5.76, 85.85, 1);
+      }
+    },
+    undefined,
+    (error) => {
+      console.error("HDR environment failed to load:", error);
     }
   );
 
   function setPointLight(screenLight: any) {
+    if (!screenLight) return;
+
     if (screenLight.material.opacity > 0.9) {
       pointLight.intensity = screenLight.material.emissiveIntensity * 20;
     } else {
@@ -47,7 +57,7 @@ const setLighting = (scene: THREE.Scene) => {
   const ease = "power2.inOut";
 
   function turnOnLights() {
-    gsap.to(scene, {
+    gsap.to(scene as any, {
       environmentIntensity: 0.64,
       duration: duration,
       ease: ease,
