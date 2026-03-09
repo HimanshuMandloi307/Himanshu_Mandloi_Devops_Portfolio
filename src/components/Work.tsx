@@ -8,31 +8,31 @@ const projects = [
     title: "AWS EKS Microservices Deployment",
     category: "Cloud Infrastructure",
     tools: "AWS EKS, Docker, Kubernetes, Terraform, GitHub Actions",
-    image: "/images/Solidx.png",
+    image: `${import.meta.env.BASE_URL}images/Solidx.png`,
   },
   {
     title: "CI/CD Automation Pipeline",
     category: "DevOps Automation",
     tools: "Jenkins, Docker, Kubernetes, GitHub, SonarQube",
-    image: "/images/radix.png",
+    image: `${import.meta.env.BASE_URL}images/radix.png`,
   },
   {
     title: "Infrastructure as Code",
     category: "Terraform Automation",
     tools: "Terraform, AWS EC2, VPC, Load Balancer, IAM",
-    image: "/images/bond.png",
+    image: `${import.meta.env.BASE_URL}images/bond.png`,
   },
   {
     title: "GitOps Deployment Platform",
     category: "Kubernetes GitOps",
     tools: "ArgoCD, Kubernetes, Helm, Docker",
-    image: "/images/sapphire.png",
+    image: `${import.meta.env.BASE_URL}images/sapphire.png`,
   },
   {
     title: "Monitoring & Observability",
     category: "Production Monitoring",
     tools: "Prometheus, Grafana, CloudWatch, Alerting",
-    image: "/images/Maxlife.png",
+    image: `${import.meta.env.BASE_URL}images/Maxlife.png`,
   },
 ];
 
